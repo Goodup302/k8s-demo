@@ -42,6 +42,25 @@ minikube service DEPLOYMENT_NAME --url
 `echo -n 'root' | base64`
 
 
+##Get info of cluser
+`kubectl cluster-info`
+
+##Get ip of public load balancer
+`minikube service YOUR-SERVICE`
+
+
+#Namespaces
+kube-system -> for k8s components
+kube-public -> for public resources without identification
+kube-node-lease -> heartbeats/availability of nodes
+default -> for default components created by us
+
+#Add ingress controleur on minikube
+`minikube addons enable ingress`
+
+
+##Decode Base64
+echo -n 'string' | base64
 
 HELM v3
 
@@ -52,8 +71,8 @@ Create Statefullset Mysql
 
 
 
-
-
+#Start pod ephemeral
+kubectl run busybox --image=busybox -it --restart=Never --rm -- echo 'hello world'
 
 
 
