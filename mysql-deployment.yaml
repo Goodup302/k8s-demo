@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: mysql:8.0.24
+        image: goodup302/docker-mysql
         ports:
         - containerPort: 3306
         env:
@@ -47,7 +47,8 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: manual
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: slow
   capacity:
     storage: 1Gi
   accessModes:
@@ -60,7 +61,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: mysql-pv-claim
 spec:
-  storageClassName: manual
+  storageClassName: standard
   accessModes:
     - ReadWriteOnce
   resources:
